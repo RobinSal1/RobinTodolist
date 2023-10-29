@@ -7,7 +7,7 @@ function newElement() {  //User input//
     updateTasksLeftCount() //update count
     localStorage.setItem('tasks', document.getElementById('myUL').innerHTML); //store to localstorage
     }
-}
+};
 
 function validateInput() { // validating the input
     var userInput = document.getElementById("myInput").value; //entered text
@@ -20,7 +20,7 @@ function validateInput() { // validating the input
         userInputElement.classList.remove("error-border"); // remove the invalid border
         return true; // input is valid
     }
-}
+};
 
 function clickevent() { // check the validation
     var isValid = validateInput(); // validate the input
@@ -28,7 +28,7 @@ function clickevent() { // check the validation
         return; // return if invalid
     }
     newElement(); // add valid input to the list
-}
+};
 
 document.getElementById('myUL').addEventListener('click', function(event) { //select the myUL element and execute the element function when clicked
     if (event.target.tagName === 'LI') { //check if its a list item
@@ -42,7 +42,7 @@ function updateTasksLeftCount() {
     var tasks = document.querySelectorAll('ul li:not(.checked)'); //select all the elements that do not have the class checked
     var tasksLeft = tasks.length; //number of li elements without the checked class. 
     document.getElementById('tasks-left').textContent = 'Tasks left: ' + tasksLeft;
-}
+};
 
 document.getElementById('clear').addEventListener('click', function() { // click event to the Id="clear"
     var completedTasks = document.querySelectorAll('ul li.checked'); // select all of the li elements that are checked
@@ -56,7 +56,8 @@ document.getElementById('clear').addEventListener('click', function() { // click
 var taskstorage = localStorage.getItem('tasks'); // get the stored tasks form localstorage
 if (taskstorage) {
     document.getElementById('myUL').innerHTML = taskstorage;
-}
+};
+
 updateTasksLeftCount(); //update the count
 
 
