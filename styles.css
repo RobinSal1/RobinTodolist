@@ -37,12 +37,12 @@ ul li:hover { /*chance color when hovered over*/
 }
 
 ul li.checked { /*mark the task done*/
-    background: rgb(119, 151, 119);
-    color: #fff;
-    text-decoration: line-through;
-  }
+        background: rgb(119, 151, 119);
+        color: #fff;
+        text-decoration: line-through;
+}
 
-  ul li.checked::before { /*add the visual checkmark to the clicked task*/
+ul li.checked::before { /*add the visual checkmark to the clicked task*/
     content: "\2713";
     position: absolute;
     top: 0;
