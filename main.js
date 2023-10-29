@@ -37,6 +37,7 @@ document.getElementById('myUL').addEventListener('click', function(event) { //se
       localStorage.setItem('tasks', this.innerHTML); // store to localstorage
     }
   });
+
 function updateTasksLeftCount() {
     var tasks = document.querySelectorAll('ul li:not(.checked)'); //select all the elements that do not have the class checked
     var tasksLeft = tasks.length; //number of li elements without the checked class. 
