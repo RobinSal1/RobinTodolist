@@ -5,7 +5,7 @@ function newElement() {  //User input//
     document.getElementById("myUL").appendChild(newTaskitem);
     document.getElementById("myInput").value = ""; // Clear the input field
     updateTasksLeftCount() //update count
-    localStorage.setItem('tasks', document.getElementById('myUL').innerHTML); //store to localstorage
+    localStorage.setItem("tasks", document.getElementById("myUL").innerHTML); //store to localstorage
     }
 };
 
@@ -30,32 +30,32 @@ function clickevent() { // check the validation
     newElement(); // add valid input to the list
 };
 
-document.getElementById('myUL').addEventListener('click', function(event) { //select the myUL element and execute the element function when clicked
-    if (event.target.tagName === 'LI') { //check if its a list item
-      event.target.classList.toggle('checked'); // toggle the checked class and add it or remove it
+document.getElementById("myUL").addEventListener("click", function(event) { //select the myUL element and execute the element function when clicked
+    if (event.target.tagName === "LI") { //check if its a list item
+      event.target.classList.toggle("checked"); // toggle the checked class and add it or remove it
       updateTasksLeftCount();//update count
-      localStorage.setItem('tasks', this.innerHTML); // store to localstorage
+      localStorage.setItem("tasks", event.target.innerHTML); // store to localstorage
     }
   });
 
 function updateTasksLeftCount() {
-    var tasks = document.querySelectorAll('ul li:not(.checked)'); //select all the elements that do not have the class checked
+    var tasks = document.querySelectorAll("ul li:not(.checked)"); //select all the elements that do not have the class checked
     var tasksLeft = tasks.length; //number of li elements without the checked class. 
-    document.getElementById('tasks-left').textContent = 'Tasks left: ' + tasksLeft;
+    document.getElementById("tasks-left").textContent = "Tasks left: " + tasksLeft;
 };
 
-document.getElementById('clear').addEventListener('click', function() { // click event to the Id="clear"
-    var completedTasks = document.querySelectorAll('ul li.checked'); // select all of the li elements that are checked
+document.getElementById("clear").addEventListener("click", function() { // click event to the Id="clear"
+    var completedTasks = document.querySelectorAll("ul li.checked"); // select all of the li elements that are checked
     completedTasks.forEach(function(task) { 
     task.remove(); // remove the checked tasks with a loop
-    localStorage.setItem('tasks', document.getElementById('myUL').innerHTML); //update the localstorage
+    localStorage.setItem("tasks", document.getElementById("myUL").innerHTML); //update the localstorage
     });
     updateTasksLeftCount();
 });
 
-var taskstorage = localStorage.getItem('tasks'); // get the stored tasks form localstorage
+var taskstorage = localStorage.getItem("tasks"); // get the stored tasks form localstorage
 if (taskstorage) {
-    document.getElementById('myUL').innerHTML = taskstorage;
+    document.getElementById("myUL").innerHTML = taskstorage;
 };
 
 updateTasksLeftCount(); //update the count
